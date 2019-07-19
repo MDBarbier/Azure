@@ -8,7 +8,7 @@
     "Password": "",
     "UserName": "xHPQnxGBwcuabBDmSOMyYAG8rcREr1XIaIy-",
     "coreResourceGroupName": "[concat('bfin', variables('environment'), '_rg_core')]",
-    "onPremiseGatewayName": "[concat('bfin', parameters('environment'),'opdg')]"
+    "onPremiseGatewayName": "[concat('bfin', variables('environment'),'opdg')]"
   },
   "resources": [
     {
