@@ -124,7 +124,7 @@
             }
           ],
           "paths": {
-            "/public-api/users": {
+            "/public-api/users/": {
               "get": {
                 "responses": {
                   "default": {
@@ -134,11 +134,7 @@
                       "title": "",
                       "x-ms-visibility": "important"
                     },
-                    "headers": {
-                      "Content-Type": {
-                        "description": "Content-Type",
-                        "type": "string"
-                      }
+                    "headers": {                     
                     }
                   }
                 },
