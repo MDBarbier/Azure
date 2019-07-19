@@ -4,7 +4,7 @@
   "parameters": {},
   "variables": {
     "environment": "poc1",
-    "hostname": "https://gorest.co.in",
+    "hostname": "gorest.co.in",
     "resourceGroupLocation": "[resourceGroup().location]",
     "cepBackendUrl": "[concat('https://', variables('hostname'))]",
     "CustomConnectorName": "MyCustomConnector"
@@ -27,7 +27,7 @@
           "username": {
             "type": "securestring",
             "uiDefinition": {
-              "displayName": "UserName",
+              "displayName": "UserName!",
               "description": "The UserName for this api",
               "tooltip": "Provide the UserName",
               "constraints": {
@@ -40,13 +40,13 @@
           "password": {
             "type": "securestring",
             "uiDefinition": {
-              "displayName": "Password",
+              "displayName": "Password!",
               "description": "The Password for this api",
               "tooltip": "Provide the Password",
               "constraints": {
                 "tabIndex": 3,
                 "clearText": false,
-                "required": "true"
+                "required": "false"
               }
             }
           },
@@ -178,7 +178,7 @@
           "securityDefinitions": {},
           "security": [],          
           "schemes": [
-            "http"
+            "https"
           ]
         },
         "brandColor": "#71D2DC",
