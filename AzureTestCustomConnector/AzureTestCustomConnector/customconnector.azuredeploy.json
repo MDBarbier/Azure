@@ -20,9 +20,9 @@
       },
       "scale": null,
       "properties": {
-        "capabilities": [
-          "gateway"
-        ],
+        //"capabilities": [
+        //  "gateway"
+        //],
         "connectionParameters": {
           "username": {
             "type": "securestring",
@@ -109,26 +109,10 @@
           "host": "[variables('hostname')]",
           "basePath": "/",
           "tags": [
-            {
-              "name": "basic-error-controller",
-              "description": "Basic Error Controller"
-            },
-            {
-              "name": "extract-request-receive-controller",
-              "description": "Extract Request Receive Controller"
-            },
-            {
-              "name": "order-manifest-request-controller",
-              "description": "Order Manifest Request Controller"
-            },
-            {
-              "name": "storage-access-request-controller",
-              "description": "Storage Access Request Controller"
-            }
           ],
           "paths": {
-            "/public-api/users": {
-              "post": {
+            "/public-api/users/": {
+              "get": {
                 "responses": {
                   "default": {
                     "description": "default",
@@ -137,11 +121,7 @@
                       "title": "",
                       "x-ms-visibility": "important"
                     },
-                    "headers": {
-                      "Content-Type": {
-                        "description": "Content-Type",
-                        "type": "string"
-                      }
+                    "headers": {                     
                     }
                   }
                 },
@@ -150,23 +130,7 @@
                 "operationId": "TestApi",
                 "x-ms-visibility": "important",
                 "parameters": [
-                  {
-                    "name": "Content-Type",
-                    "in": "header",
-                    "required": true,
-                    "type": "string",
-                    "default": "text/json",
-                    "x-ms-visibility": "important"
-
-                  },
-                  {
-                    "name": "body",
-                    "in": "body",
-                    "required": true,
-                    "schema": {
-                      "type": "string"
-                    }
-                  }
+                  
                 ]
               }
             }
