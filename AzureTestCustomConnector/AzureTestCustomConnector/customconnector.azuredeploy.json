@@ -27,7 +27,7 @@
           "username": {
             "type": "securestring",
             "uiDefinition": {
-              "displayName": "UserName!",
+              "displayName": "username",
               "description": "The UserName for this api",
               "tooltip": "Provide the UserName",
               "constraints": {
@@ -40,7 +40,7 @@
           "password": {
             "type": "securestring",
             "uiDefinition": {
-              "displayName": "Password!",
+              "displayName": "password",
               "description": "The Password for this api",
               "tooltip": "Provide the Password",
               "constraints": {
