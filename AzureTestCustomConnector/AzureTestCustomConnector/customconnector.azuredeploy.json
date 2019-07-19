@@ -27,7 +27,7 @@
           "username": {
             "type": "securestring",
             "uiDefinition": {
-              "displayName": "username",
+              "displayName": "UserName!",
               "description": "The UserName for this api",
               "tooltip": "Provide the UserName",
               "constraints": {
@@ -40,7 +40,7 @@
           "password": {
             "type": "securestring",
             "uiDefinition": {
-              "displayName": "password",
+              "displayName": "Password!",
               "description": "The Password for this api",
               "tooltip": "Provide the Password",
               "constraints": {
@@ -127,8 +127,8 @@
             }
           ],
           "paths": {
-            "/public-api/users/": {
-              "get": {
+            "/public-api/users": {
+              "post": {
                 "responses": {
                   "default": {
                     "description": "default",
@@ -138,6 +138,10 @@
                       "x-ms-visibility": "important"
                     },
                     "headers": {
+                      "Content-Type": {
+                        "description": "Content-Type",
+                        "type": "string"
+                      }
                     }
                   }
                 },
@@ -146,6 +150,23 @@
                 "operationId": "TestApi",
                 "x-ms-visibility": "important",
                 "parameters": [
+                  {
+                    "name": "Content-Type",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "default": "text/json",
+                    "x-ms-visibility": "important"
+
+                  },
+                  {
+                    "name": "body",
+                    "in": "body",
+                    "required": true,
+                    "schema": {
+                      "type": "string"
+                    }
+                  }
                 ]
               }
             }
