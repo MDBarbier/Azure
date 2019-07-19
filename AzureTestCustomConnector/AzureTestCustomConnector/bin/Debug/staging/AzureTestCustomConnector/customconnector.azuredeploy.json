@@ -1,0 +1,192 @@
+﻿{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "environment": "poc1",
+    "hostname": "https://gorest.co.in",
+    "resourceGroupLocation": "[resourceGroup().location]",
+    "cepBackendUrl": "[concat('https://', variables('hostname'))]",
+    "CustomConnectorName": "MyCustomConnector"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Web/customApis",
+      "name": "[variables('CustomConnectorName')]",
+      "apiVersion": "2016-06-01",
+      "location": "[variables('resourceGroupLocation')]",
+      "tags": {
+        "Environment": "[variables('environment')]"
+      },
+      "scale": null,
+      "properties": {
+        "capabilities": [
+          "gateway"
+        ],
+        "connectionParameters": {
+          "username": {
+            "type": "securestring",
+            "uiDefinition": {
+              "displayName": "UserName",
+              "description": "The UserName for this api",
+              "tooltip": "Provide the UserName",
+              "constraints": {
+                "tabIndex": 2,
+                "clearText": true,
+                "required": "true"
+              }
+            }
+          },
+          "password": {
+            "type": "securestring",
+            "uiDefinition": {
+              "displayName": "Password",
+              "description": "The Password for this api",
+              "tooltip": "Provide the Password",
+              "constraints": {
+                "tabIndex": 3,
+                "clearText": false,
+                "required": "true"
+              }
+            }
+          },
+          "authType": {
+            "type": "string",
+            "allowedValues": [
+              {
+                "value": "basic"
+              }
+            ],
+            "uiDefinition": {
+              "displayName": "Authentication Type",
+              "description": "Authentication type to connect to your API",
+              "tooltip": "Authentication type to connect to your API",
+              "constraints": {
+                "tabIndex": 1,
+                "required": "true",
+                "allowedValues": [
+                  {
+                    "text": "basic",
+                    "value": "basic"
+                  }
+                ]
+              }
+            }
+          },
+          "gateway": {
+            "type": "gatewaySetting",
+            "gatewaySettings": {
+              "dataSourceType": "CustomConnector",
+              "connectionDetails": []
+            },
+            "uiDefinition": {
+              "constraints": {
+                "tabIndex": 4,
+                "required": "true",
+                "capability": [
+                  "gateway"
+                ]
+              }
+            }
+          }
+        },
+        "backendService": {
+          "serviceUrl": "[variables('cepBackendUrl')]"
+        },
+        "swagger": {
+          "swagger": "2.0",
+          "info": {
+            "description": "Api Documentation",
+            "version": "1.0",
+            "title": "Api Documentation",
+            "termsOfService": "urn:tos",
+            "contact": {},
+            "license": {
+              "name": "Apache 2.0",
+              "url": "http://www.apache.org/licenses/LICENSE-2.0"
+            }
+          },
+          "host": "[variables('hostname')]",
+          "basePath": "/",
+          "tags": [
+            {
+              "name": "basic-error-controller",
+              "description": "Basic Error Controller"
+            },
+            {
+              "name": "extract-request-receive-controller",
+              "description": "Extract Request Receive Controller"
+            },
+            {
+              "name": "order-manifest-request-controller",
+              "description": "Order Manifest Request Controller"
+            },
+            {
+              "name": "storage-access-request-controller",
+              "description": "Storage Access Request Controller"
+            }
+          ],
+          "paths": {
+            "/public-api/users": {
+              "post": {
+                "responses": {
+                  "default": {
+                    "description": "default",
+                    "schema": {
+                      "type": "string",
+                      "title": "",
+                      "x-ms-visibility": "important"
+                    },
+                    "headers": {
+                      "Content-Type": {
+                        "description": "Content-Type",
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "summary": "TestApi",
+                "description": "TestApi",
+                "operationId": "TestApi",
+                "x-ms-visibility": "important",
+                "parameters": [
+                  {
+                    "name": "Content-Type",
+                    "in": "header",
+                    "required": true,
+                    "type": "string",
+                    "default": "text/json",
+                    "x-ms-visibility": "important"
+
+                  },
+                  {
+                    "name": "body",
+                    "in": "body",
+                    "required": true,
+                    "schema": {
+                      "type": "string"
+                    }
+                  }
+                ]
+              }
+            }
+
+          },
+          "definitions": {},
+          "parameters": {},
+          "responses": {},
+          "securityDefinitions": {},
+          "security": [],          
+          "schemes": [
+            "http"
+          ]
+        },
+        "brandColor": "#71D2DC",
+        "description": "My API",
+        "displayName": "[variables('CustomConnectorName')]",
+        "iconUri": "data:image/png;base64,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"
+
+      }
+    }
+  ]
+}
