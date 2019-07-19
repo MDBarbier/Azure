@@ -7,8 +7,8 @@
     "Environment": "poc1",
     "Password": "",
     "UserName": "xHPQnxGBwcuabBDmSOMyYAG8rcREr1XIaIy-",
-    "coreResourceGroupName": "[concat('bfin', parameters('environment'), '_rg_core')]",
-    "onPremiseGatewayName": "[concat('bfin', parameters('environment'),'opdg')]"
+    "coreResourceGroupName": "[concat('bfin', variables('environment'), '_rg_core')]",
+    "onPremiseGatewayName": "[concat('bfin', variables('environment'),'opdg')]"
   },
   "resources": [
     {
@@ -22,8 +22,8 @@
         },
         "displayName": "MyCustomConnector",
         "parameterValues": {
-          "username": "[parameters('UserName')]",
-          "password": "[parameters('Password')]",
+          "username": "[variables('UserName')]",
+          "password": "[variables('Password')]",
           "authType": "basic",
           "gateway": {
             "id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',variables('coreResourceGroupName'),'/providers/Microsoft.Web/connectionGateways/',variables('onPremiseGatewayName'))]"
