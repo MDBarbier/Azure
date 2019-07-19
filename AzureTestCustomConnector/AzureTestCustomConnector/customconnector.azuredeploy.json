@@ -125,7 +125,7 @@
           ],
           "paths": {
             "/public-api/users": {
-              "post": {
+              "get": {
                 "responses": {
                   "default": {
                     "description": "default",
@@ -146,24 +146,7 @@
                 "description": "TestApi",
                 "operationId": "TestApi",
                 "x-ms-visibility": "important",
-                "parameters": [
-                  {
-                    "name": "Content-Type",
-                    "in": "header",
-                    "required": true,
-                    "type": "string",
-                    "default": "text/json",
-                    "x-ms-visibility": "important"
-
-                  },
-                  {
-                    "name": "body",
-                    "in": "body",
-                    "required": true,
-                    "schema": {
-                      "type": "string"
-                    }
-                  }
+                "parameters": [                  
                 ]
               }
             }
