@@ -5,6 +5,7 @@
   "variables": {
     "environment": "poc1",
     "hostname": "gorest.co.in",
+    "UserName": "xHPQnxGBwcuabBDmSOMyYAG8rcREr1XIaIy-",
     "resourceGroupLocation": "[resourceGroup().location]",
     "cepBackendUrl": "[concat('https://', variables('hostname'))]",
     "CustomConnectorName": "MyCustomConnector"
@@ -26,6 +27,9 @@
         "connectionParameters": {
           "username": {
             "type": "securestring",
+            "allowedValues": [
+              { "value": "[variables('Username')]" }
+            ],
             "uiDefinition": {
               "displayName": "username",
               "description": "The UserName for this api",
