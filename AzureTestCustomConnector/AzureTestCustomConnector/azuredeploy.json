@@ -25,9 +25,9 @@
           "username": "[variables('UserName')]",
           "password": "[variables('Password')]",
           "authType": "basic",
-          "gateway": {
+          //"gateway": {
             //"id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',variables('coreResourceGroupName'),'/providers/Microsoft.Web/connectionGateways/',variables('onPremiseGatewayName'))]"
-          }
+          //}
         }
       }
     }
