@@ -5,10 +5,9 @@
   },
   "variables": {
     "Environment": "poc1",
-    "Password": "",
+    "Password": " ",
     "UserName": "xHPQnxGBwcuabBDmSOMyYAG8rcREr1XIaIy-",
-    "coreResourceGroupName": "[concat('bfin', variables('environment'), '_rg_core')]",
-    "onPremiseGatewayName": "[concat('bfin', variables('environment'),'opdg')]"
+    "coreResourceGroupName": "[concat('bfin', variables('environment'), '_rg_core')]"
   },
   "resources": [
     {
@@ -24,10 +23,7 @@
         "parameterValues": {
           "username": "[variables('UserName')]",
           "password": "[variables('Password')]",
-          "authType": "basic",
-          "gateway": {
-            "id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',variables('coreResourceGroupName'),'/providers/Microsoft.Web/connectionGateways/',variables('onPremiseGatewayName'))]"
-          }
+          "authType": "basic"
         }
       }
     }
