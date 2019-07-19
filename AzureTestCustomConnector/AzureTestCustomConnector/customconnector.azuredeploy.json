@@ -19,15 +19,12 @@
         "Environment": "[variables('environment')]"
       },
       "scale": null,
-      "properties": {
-        "capabilities": [
-          "gateway"
-        ],
+      "properties": {        
         "connectionParameters": {
-          "UN": {
+          "username": {
             "type": "securestring",
             "uiDefinition": {
-              "displayName": "UN",
+              "displayName": "username",
               "description": "The UserName for this api",
               "tooltip": "Provide the UserName",
               "constraints": {
@@ -37,10 +34,10 @@
               }
             }
           },
-          "PW": {
+          "password": {
             "type": "securestring",
             "uiDefinition": {
-              "displayName": "PW",
+              "displayName": "password",
               "description": "The Password for this api",
               "tooltip": "Provide the Password",
               "constraints": {
