@@ -5,7 +5,7 @@
   },
   "variables": {
     "Environment": "poc1",
-    "Password": "",
+    "Password": "none",
     "UserName": "xHPQnxGBwcuabBDmSOMyYAG8rcREr1XIaIy-",
     "coreResourceGroupName": "[concat('bfin', variables('environment'), '_rg_core')]",
     "onPremiseGatewayName": "[concat('bfin', variables('environment'),'opdg')]"
