@@ -19,7 +19,10 @@
         "Environment": "[variables('environment')]"
       },
       "scale": null,
-      "properties": {        
+      "properties": {
+        "capabilities": [
+          "gateway"
+        ],
         "connectionParameters": {
           "username": {
             "type": "securestring",
@@ -134,7 +137,7 @@
                       "title": "",
                       "x-ms-visibility": "important"
                     },
-                    "headers": {                     
+                    "headers": {
                     }
                   }
                 },
@@ -142,7 +145,7 @@
                 "description": "TestApi",
                 "operationId": "TestApi",
                 "x-ms-visibility": "important",
-                "parameters": [                  
+                "parameters": [
                 ]
               }
             }
@@ -152,7 +155,7 @@
           "parameters": {},
           "responses": {},
           "securityDefinitions": {},
-          "security": [],          
+          "security": [],
           "schemes": [
             "https"
           ]
