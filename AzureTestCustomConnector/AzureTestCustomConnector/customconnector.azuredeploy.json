@@ -24,7 +24,7 @@
           "gateway"
         ],
         "connectionParameters": {
-          "username": {
+          "UN": {
             "type": "securestring",
             "uiDefinition": {
               "displayName": "UN",
@@ -37,7 +37,7 @@
               }
             }
           },
-          "password": {
+          "PW": {
             "type": "securestring",
             "uiDefinition": {
               "displayName": "PW",
