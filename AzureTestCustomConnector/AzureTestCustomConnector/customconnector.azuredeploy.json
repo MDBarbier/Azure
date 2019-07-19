@@ -5,7 +5,6 @@
   "variables": {
     "environment": "poc1",
     "hostname": "gorest.co.in",
-    "UserName": "xHPQnxGBwcuabBDmSOMyYAG8rcREr1XIaIy-",
     "resourceGroupLocation": "[resourceGroup().location]",
     "cepBackendUrl": "[concat('https://', variables('hostname'))]",
     "CustomConnectorName": "MyCustomConnector"
@@ -21,15 +20,12 @@
       },
       "scale": null,
       "properties": {
-        //"capabilities": [
-        //  "gateway"
-        //],
+        "capabilities": [
+          "gateway"
+        ],
         "connectionParameters": {
           "username": {
-            "type": "securestring",
-            "allowedValues": [
-              { "value": "[variables('Username')]" }
-            ],
+            "type": "string",
             "uiDefinition": {
               "displayName": "username",
               "description": "The UserName for this api",
@@ -42,14 +38,14 @@
             }
           },
           "password": {
-            "type": "securestring",
+            "type": "string",
             "uiDefinition": {
               "displayName": "password",
               "description": "The Password for this api",
               "tooltip": "Provide the Password",
               "constraints": {
                 "tabIndex": 3,
-                "clearText": false,
+                "clearText": true,
                 "required": "false"
               }
             }
@@ -115,26 +111,18 @@
           "tags": [
           ],
           "paths": {
-            "/public-api/users/": {
+            "/public-api/users": {
               "get": {
                 "responses": {
                   "default": {
-                    "description": "default",
-                    "schema": {
-                      "type": "string",
-                      "title": "",
-                      "x-ms-visibility": "important"
-                    },
-                    "headers": {                     
-                    }
+                    "description": "default"                   
                   }
                 },
                 "summary": "TestApi",
                 "description": "TestApi",
                 "operationId": "TestApi",
                 "x-ms-visibility": "important",
-                "parameters": [
-                  
+                "parameters": [                  
                 ]
               }
             }
