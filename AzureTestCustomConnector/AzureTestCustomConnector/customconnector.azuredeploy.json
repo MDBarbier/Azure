@@ -24,10 +24,10 @@
           "gateway"
         ],
         "connectionParameters": {
-          "UserName": {
+          "username": {
             "type": "string",
             "uiDefinition": {
-              "displayName": "UserName",
+              "displayName": "password",
               "description": "The UserName for this api",
               "tooltip": "Provide the UserName",
               "constraints": {
@@ -37,10 +37,10 @@
               }
             }
           },
-          "Password": {
+          "password": {
             "type": "string",
             "uiDefinition": {
-              "displayName": "Password",
+              "displayName": "password",
               "description": "The Password for this api",
               "tooltip": "Provide the Password",
               "constraints": {

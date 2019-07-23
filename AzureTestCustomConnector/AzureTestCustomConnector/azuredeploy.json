@@ -22,8 +22,8 @@
         },
         "displayName": "MyCustomConnector",
         "parameterValues": {
-          "UserName": "[variables('UserName')]",
-          "Password": "[variables('Password')]",
+          "username": "[variables('UserName')]",
+          "password": "[variables('Password')]",
           "authType": "basic",
           "gateway": {
             "id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',variables('coreResourceGroupName'),'/providers/Microsoft.Web/connectionGateways/',variables('onPremiseGatewayName'))]"
