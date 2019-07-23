@@ -24,7 +24,7 @@
           "gateway"
         ],
         "connectionParameters": {
-          "username": {
+          "UserName": {
             "type": "string",
             "uiDefinition": {
               "displayName": "UserName",
@@ -37,7 +37,7 @@
               }
             }
           },
-          "password": {
+          "Password": {
             "type": "string",
             "uiDefinition": {
               "displayName": "Password",
