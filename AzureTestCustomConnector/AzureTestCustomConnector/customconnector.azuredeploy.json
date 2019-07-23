@@ -25,7 +25,7 @@
         ],
         "connectionParameters": {
           "username": {
-            "type": "string",
+            "type": "securestring",
             "uiDefinition": {
               "displayName": "ConnectionUsername",              
               "description": "The UserName for this api",
@@ -33,12 +33,15 @@
               "constraints": {
                 "tabIndex": 2,
                 "clearText": true,
-                "required": "true"
+                "required": "true",
+                "capability": [
+                  "gateway"
+                ]
               }
             }
           },
           "password": {
-            "type": "string",
+            "type": "securestring",
             "uiDefinition": {
               "displayName": "ConnectionPassword",              
               "description": "The Password for this api",
@@ -46,7 +49,10 @@
               "constraints": {
                 "tabIndex": 3,
                 "clearText": false,
-                "required": "false"
+                "required": "false",
+                "capability": [
+                  "gateway"
+                ]
               }
             }
           },
