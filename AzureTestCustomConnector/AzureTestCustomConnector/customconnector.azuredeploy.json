@@ -25,7 +25,7 @@
         ],
         "connectionParameters": {
           "username": {
-            "type": "securestring",
+            "type": "string",
             "uiDefinition": {
               "displayName": "Username",
               "description": "The UserName for this api",
@@ -38,7 +38,7 @@
             }
           },
           "password": {
-            "type": "securestring",
+            "type": "string",
             "uiDefinition": {
               "displayName": "Password",
               "description": "The Password for this api",
