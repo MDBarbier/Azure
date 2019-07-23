@@ -45,7 +45,7 @@
               "tooltip": "Provide the Password",
               "constraints": {
                 "tabIndex": 3,
-                "clearText": true,
+                "clearText": false,
                 "required": "false"
               }
             }
