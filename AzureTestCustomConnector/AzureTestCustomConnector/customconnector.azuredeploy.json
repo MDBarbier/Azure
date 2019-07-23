@@ -28,6 +28,7 @@
             "type": "string",
             "uiDefinition": {
               "displayName": "Username",
+              "value": "Username",
               "description": "The UserName for this api",
               "tooltip": "Provide the UserName",
               "constraints": {
@@ -41,6 +42,7 @@
             "type": "string",
             "uiDefinition": {
               "displayName": "Password",
+              "value":  "Password",
               "description": "The Password for this api",
               "tooltip": "Provide the Password",
               "constraints": {
