@@ -9,6 +9,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+AzureDevParameters.cs
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
