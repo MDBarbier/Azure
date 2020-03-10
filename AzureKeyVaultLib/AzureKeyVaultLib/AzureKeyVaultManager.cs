@@ -1,16 +1,16 @@
-﻿using Azure;
-using Azure.Identity;
+﻿using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AzureKeyVaultLib
 {
-    public class AzureKeyVaultManager
+    public class AzureKeyVaultManager : IAzureKeyVaultManager
     {
         internal string KeyVaultUrl { get; set; }
         internal SecretClient SecretClient { get; set; }
-
+        
         /// <summary>
         /// Constructor sets up the SecretClient using DefaultAzureCredentials object (which reads clientId, clientSecret and tenantId from environment variables, see ReadMe.md)
         /// </summary>
@@ -26,12 +26,12 @@ namespace AzureKeyVaultLib
         /// </summary>
         /// <param name="secretName">The name to give the secret</param>
         /// <param name="secretValue">The value the secret should have</param>
-        /// <returns>True if succesfully added</returns>
+        /// <returns>True if successfully added</returns>
         public bool AddSecret(string secretName, string secretValue)
         {            
             var secret = SecretClient.SetSecret(secretName, secretValue);
 
-            return string.IsNullOrEmpty(secret.Value.Value) ? false : true;            
+            return !string.IsNullOrEmpty(secret.Value.Value);            
         }
 
         /// <summary>
@@ -60,16 +60,12 @@ namespace AzureKeyVaultLib
         /// <returns></returns>
         public IEnumerable<SecretProperties> GetAllSecretProperties()
         {
-            var secretsList = new List<SecretProperties>();
+            return SecretClient.GetPropertiesOfSecrets().ToList();
+        }
 
-            Pageable<SecretProperties> allSecrets = SecretClient.GetPropertiesOfSecrets();
-
-            foreach (SecretProperties secretProperties in allSecrets)
-            {
-                secretsList.Add(secretProperties);
-            }
-
-            return secretsList;
+        public void Dispose()
+        {
+            this.SecretClient = null;
         }
     }
 }
