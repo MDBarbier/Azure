@@ -11,11 +11,16 @@ namespace KeyVaultManagerTestApp
 
             IEnvironmentVariableManager evm = new EnvironmentVariableManager();
 
-            evm.EnvironmentVariablePreflight(AzureDevParameters.TenantId, AzureDevParameters.ClientId, AzureDevParameters.ClientSecret);
+            evm.EnvironmentVariablePreflight(AzureParameters.TenantId, AzureParameters.ClientId, AzureParameters.ClientSecret);
 
-            using IAzureKeyVaultManager kvm = new AzureKeyVaultManager("https://bfindev1deploy-vlt.vault.azure.net/");
+            using IAzureKeyVaultManager kvm = new AzureKeyVaultManager(AzureParameters.VaultUrl);
 
-            var result = kvm.GetAllSecretProperties();
+            var allSecretProps = kvm.GetAllSecretProperties();
+
+            foreach (var secretProps in allSecretProps)
+            {
+                Console.WriteLine($"Secret name: {secretProps.Name}, created on: {secretProps.CreatedOn}");
+            }
         }
     }
 }
